@@ -22,20 +22,25 @@
             <?php
                 session_start();
                 // Name aus Login-Formular übernehmen
-                $email = $_POST['email'];
+                $name = $_POST['name'];
                 $passwort = $_POST['password'];
                 $pw_false = false;
                 // Passwort-HASH generieren
                 $hash = password_hash($_POST['password'], PASSWORD_BCRYPT, ["salt" => "dasistdashausVOMNitrolausundweildashauszuKleinISTbauenwiresgroesser"]);
-                // Datenbankverbindung herstellen
-                  require 'db-connect.php';
-                // Datenbankinhalt einlesen
-                $import = $_SESSION['DB']->query("SELECT * FROM kunden");
-                while ($row = $import->fetch_assoc()) {
-                  if ( $row['eMail'] == $email) {
-                    if ( $row['Passwort'] == $hash) {
+                // User-Datei öffnen
+                $handle = file('users.csv');
+
+                // User-Daten in das array import zerlegt einfügen
+                foreach ($handle as $import1) {
+
+                  $import = str_getcsv ($import1, ';');
+
+                  // Array mit den Einzelwerten auslesen und ausgeben
+                  if($name == $import[0]){
+                    if ( $hash ==  $import[1]) {
                       echo "Du wirst eingeloggt.";
-                      $_SESSION['User'] = $row['Vorname'];
+                      $_SESSION['User'] = $name;
+                      $_SESSION['Passwort'] = $passwort;
                       header('location: member.php');
                     }
                     else{
@@ -55,7 +60,4 @@
     </main>
 
   </body>
-  <?php
-  require 'db-status.php';
-  ?>
 </html>

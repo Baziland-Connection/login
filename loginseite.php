@@ -16,8 +16,11 @@
     <div class="container d-flex justify-content-center align-items-center">
       <form class="d-flex flex-column col-6" action="login.php" method="post">
         <p class="font-weight-bold">Bitte melden Sie sich an:</p>
+        <!-- csv-Version
         <label for="name">Name</label>
-        <input type="text" name="name" value="">
+        <input type="name" name="name" value=""> -->
+        <label for="email">eMail</label>
+        <input type="mail" name="email" value="">
         <label for="password">Passwort</label>
         <input type="password" name="password" value="">
         <div class="button ml-1 mt-3">
@@ -26,5 +29,5 @@
       </form>
     </div>
   </body>
-  <?php require 'status.php'; ?>
+  <?php require 'db-status.php'; ?>
 </html>

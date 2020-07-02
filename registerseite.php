@@ -18,6 +18,10 @@
         <p class="font-weight-bold">Bitte registrieren Sie sich:</p>
         <label for="name">Name</label>
         <input type="text" name="name" value="">
+        <label for="vorname">Vorname</label>
+        <input type="text" name="vorname" value="">
+        <label for="email">eMail</label>
+        <input type="mail" name="email" value="">
         <label for="password">Passwort</label>
         <input type="password" name="password" value="">
         <div class="button ml-1 mt-3">

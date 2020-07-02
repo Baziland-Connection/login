@@ -12,7 +12,7 @@
   <body>
     <header>
       <?php
-        require 'menue.php';
+        require 'menue-member.php';
         session_start();
       ?>
     </header>

@@ -5,5 +5,7 @@
   if ($db->connect_errno) {
     echo "Verbindung zur Datenbank fehlgeschlagen: (" . $db->connect_errno . ") " . $db->connect_error;
   }
-  else echo "Datenbank ist verbunden."."<br>";
+  else {
+    $_SESSION['DB'] = $db;
+  }
 ?>

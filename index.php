@@ -17,10 +17,6 @@
         <div class="container d-flex justify-content-center align-items-center">
           <h3>Das ist der öffentlich sichtbare Bereich.</h3>
         </div>
-
-
-
-
       </main>
     </body>
 </html>

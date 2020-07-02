@@ -15,16 +15,37 @@
       </header>
       <main>
         <div class="container d-flex flex-column justify-content-center align-items-center">
+          <!-- csv-Version -->
           <?php
-              // Username und Passwort in die csv schreiben
+              // Passwort hashen
               $hash = password_hash($_POST['password'], PASSWORD_BCRYPT, ["salt" => "dasistdashausVOMNitrolausundweildashauszuKleinISTbauenwiresgroesser"]);
+/*
+              // Daten in die csv schreiben
               $handle = fopen("users.csv","a");
-              fwrite($handle,$_POST['name'].";".$hash.";"."\r\n");
+              fwrite($handle,$_POST['name'].";".$hash.";".$_POST['vorname'].";".$_POST['email'].";"."\r\n");
               fclose($handle);
-              echo "Vielen Dank, Herr/Frau " .$_POST['name'].".";
+              echo "Vielen Dank, " .$_POST['vorname'].".";
               echo "<br>";
               echo "<br>";
-              echo "Deine Registrierung ist erfolgt.";
+              echo "Deine Registrierung ist in der csv-Datei erfolgt.";
+              echo "<br>";
+          */
+          ?>
+          <!-- Datenbank-Version -->
+          <?php
+          // Datenbankverbindung herstellen
+            require 'db-connect.php';
+          // Datensatz einfügen
+            $name = $_POST['name'];
+            $vorname = $_POST['vorname'];
+            $email = $_POST['email'];
+            $_SESSION['DB']->query("INSERT INTO kunden(Nachname, Vorname, eMail, Passwort) VALUES ('$name', '$vorname', '$email', '$hash')");
+            echo ("<br>");
+            echo "Vielen Dank, " .$_POST['vorname'].".";
+            echo "<br>";
+            echo "<br>";
+            echo "Deine Registrierung in der Datenbank ist erfolgt.";
+            echo "<br>";
           ?>
           <br><br>
           <a class="btn btn-primary" href="index.php" role="button">Zurück zur Startseite</a>
