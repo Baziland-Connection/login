@@ -2,6 +2,9 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta content="author" name="Heiko Becker">
+    <meta name="description" content="Login-Übung von Heiko Becker">
+    <meta name="keywords" content="Heiko Becker - bei Anruf Mord">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">

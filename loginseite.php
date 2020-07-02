@@ -2,6 +2,9 @@
 <html lang="de" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta content="author" name="Heiko Becker">
+    <meta name="description" content="Login-Übung von Heiko Becker">
+    <meta name="keywords" content="Heiko Becker - bei Anruf Mord">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Login</title>
@@ -21,28 +24,7 @@
           <button type="submit" name="button">Einloggen</button>
         </div>
       </form>
-
-
     </div>
-    <div class="container">
-      <?php
-        $db = new mysqli("localhost", "root", "", "shop");
-        if ($db->connect_errno) {
-          echo "Verbindung zur Datenbank fehlgeschlagen: (" . $db->connect_errno . ") " . $db->connect_error;
-        }
-        else echo "Datenbank ist verbunden."."<br>";
-
-        $db->query("INSERT INTO kunden(Nachname, Vorname) VALUES ('Burger', 'Dominic')");
-        echo ("<br>");
-
-        $rueckgabe = $db->query("SELECT * FROM kunden");
-        while ($row = $rueckgabe->fetch_assoc()) {
-            echo " Kundennummer: " . $row['KundenNr'] . "<br>";
-            echo " Name: " . $row['Nachname'] ." ".$row['Vorname']. "<br>";
-        }
-      ?>
-
-    </div>
-
   </body>
+  <?php require 'status.php'; ?>
 </html>

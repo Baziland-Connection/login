@@ -9,3 +9,9 @@ background-color: #80808017;
 .container {
   min-height: 400px;
 }
+footer {
+background-color: #b9b9b9;
+color: white;
+min-height: 50px;
+max-height: 200px;
+}
