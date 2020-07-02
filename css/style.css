@@ -1,0 +1,11 @@
+body {
+background-color: #80808017;
+}
+.nav-link {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+.container {
+  min-height: 400px;
+}
