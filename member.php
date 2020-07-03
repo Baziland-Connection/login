@@ -29,6 +29,10 @@
              <form class="" action="config.php" method="post">
                <button type="submit" name="button">Rechner konfigurieren</button>
              </form>
+             <br><br>
+             <form class="" action="bestellung-db.php" method="post">
+               <button type="submit" name="button-db">Bestellung über Datenbank abwickeln</button>
+             </form>
            </div>
         </div>
         <div class="sidebar col-3">
