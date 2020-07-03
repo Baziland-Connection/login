@@ -34,18 +34,28 @@
                 while ($row = $import->fetch_assoc()) {
                   if ( $row['eMail'] == $email) {
                     if ( $row['Passwort'] == $hash) {
-                      echo "Du wirst eingeloggt.";
+                      echo "Du wirst eingeloggt."; // nicht notwendig, aber da :)
                       $_SESSION['User'] = $row['Vorname'];
+                      $_SESSION['Loginname'] = $row['Nachname'];
+                      $_SESSION['EMail'] = $row['eMail'];
+                      $_POST['Fehlercode'] = '1';
+                      $pw_false = true;
+                      require 'user_log.php';
                       header('location: member.php');
                     }
                     else{
                       $pw_false = true;
+                      $_SESSION['EMail'] = $email;
+                      $_POST['Fehlercode'] = '2';
+                      require 'user_log.php';
                       echo "Du hast das falsche Passwort eingegeben.";
                       break;
                     }
                   }
                 }
                 if($pw_false == false){
+                  $_POST['Fehlercode'] = '3';
+                  require 'user_log.php';
                   echo "Benutzer nicht vorhanden!";
                 }
             ?>

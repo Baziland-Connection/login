@@ -13,7 +13,7 @@
     <header>
       <?php
         require 'menue-member.php';
-        session_start();
+        //session_start();
       ?>
     </header>
     <main>

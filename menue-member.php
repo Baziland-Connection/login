@@ -16,7 +16,16 @@
     <div class="p-2 "><li class="nav-item"><a class="nav-link" href="member.php">Member-Area</a></li></div>
     <div class="p-2 "><li class="nav-item"><a class="nav-link" href="loginseite.php">Login</a></li></div>
     <div class="mr-auto p-2"><li class="nav-item"><a class="nav-link" href="registerseite.php">Registrierung</a></li></div>
-    <div class="ml-auto p-2"><li class="nav-item"><a class="nav-link" href="benutzer.php">User</a></li></div>
+    <div class="ml-auto p-2"><li class="nav-item"><a class="nav-link" href="benutzer.php">
+      <?php
+      session_start();
+      if(isset($_SESSION['Loginname'])){
+        echo ($_SESSION['User']." ".$_SESSION['Loginname']);
+      }
+      else {echo"NoName";
+      }
+      ?>
+    </a></li></div>
     <div class="p-2">
       <form class="" action="logout.php" method="post">
         <button type="submit" class="btn btn-danger">logout</button>
